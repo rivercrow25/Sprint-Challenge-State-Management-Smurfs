@@ -29,7 +29,12 @@ export const smurfReducer = (state = initialState, action) => {
         case 'DELETE_SMURF':
             return {
                 ...state,
-                smurfs: state.smurfs.filter(smurf => smurf.id !== action.payload.id)
+                // smurfs: state.smurfs.filter(smurf => smurf.id !== action.payload.id)
+            }
+        case 'DELETED':
+            return {
+                ...state,
+                smurfs: action.payload
             }
         default:
             return state

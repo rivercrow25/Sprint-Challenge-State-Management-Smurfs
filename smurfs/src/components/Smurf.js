@@ -7,7 +7,7 @@ const Smurf = ({ smurf, deleteSmurf }) => {
             <h2>Name: {smurf.name}</h2>
             <h2>Age: {smurf.age}</h2>
             <h2>Height: {smurf.height}</h2>
-            <button type='button' onClick={() => deleteSmurf(smurf)}>GoodBye</button>
+            <button type='button' onClick={() => deleteSmurf(smurf.id)}>GoodBye</button>
         </div>
     )
 }

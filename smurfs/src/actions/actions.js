@@ -32,6 +32,14 @@ export const handleNewSmurf = (smurf) => dispatch => {
         })
 }
 
+// export const deleteSmurf = (smurf) => dispatch => {
+//     dispatch({ type: 'DELETE_SMURF', payload: smurf })
+// }
+
 export const deleteSmurf = (smurf) => dispatch => {
-    dispatch({ type: 'DELETE_SMURF', payload: smurf })
+    dispatch({ type: 'DELETE_SMURF' })
+    axios.delete(`http://localhost:3333/smurfs/${smurf}`)
+        .then(response => {
+            dispatch({ type: 'DELETED', payload: response.data })
+        })
 }
