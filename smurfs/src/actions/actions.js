@@ -31,3 +31,7 @@ export const handleNewSmurf = (smurf) => dispatch => {
             console.log(error)
         })
 }
+
+export const deleteSmurf = (smurf) => dispatch => {
+    dispatch({ type: 'DELETE_SMURF', payload: smurf })
+}

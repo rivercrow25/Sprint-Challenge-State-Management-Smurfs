@@ -3,7 +3,7 @@ import { getData } from '../actions/actions'
 import { connect } from 'react-redux'
 import "./App.css";
 import SmurfList from './SmurfList'
-import { handleNewSmurf } from '../actions/actions'
+import { handleNewSmurf, deleteSmurf } from '../actions/actions'
 
 const App = (props) => {
   return (
@@ -11,7 +11,7 @@ const App = (props) => {
       <h1>SMURFS! 2.0 W/ Redux</h1>
       {
         props.isFetching ? (
-          <SmurfList smurfs={props.smurfs} handleNewSmurf={props.handleNewSmurf} />
+          <SmurfList smurfs={props.smurfs} handleNewSmurf={props.handleNewSmurf} deleteSmurf={props.deleteSmurf} />
         ) : (
             <button type='button' onClick={() => props.getData()}>Meet The Smurfs!</button>
           )
@@ -27,4 +27,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getData, handleNewSmurf })(App);
+export default connect(mapStateToProps, { getData, handleNewSmurf, deleteSmurf })(App);
