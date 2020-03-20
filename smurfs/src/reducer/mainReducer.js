@@ -1,15 +1,31 @@
 const initialState = {
-    smurf: {
-        name: '',
-        age: '',
-        height: '',
-        id: null
-    },
-    isFetching: false
+    smurfs: [],
+    isFetching: false,
+    error: '',
 }
 
 export const smurfReducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'GET_DATA':
+            return {
+                ...state,
+                isFetching: true
+            }
+        case 'SET_DATA':
+            return {
+                ...state,
+                smurfs: action.payload,
+            }
+        case 'SET_ERROR':
+            return {
+                ...state,
+                error: action.payload
+            }
+        case 'RENDER_NEW_SMURF':
+            return {
+                ...state,
+                smurfs: [...state.smurfs]
+            }
         default:
             return state
     }
